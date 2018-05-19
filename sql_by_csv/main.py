@@ -50,7 +50,7 @@ def main():
     with open(opts.csv_filename, 'r') as f:
         reader = csv.reader(f)
         cols = next(reader)
-        types = next(reader)
+        types = list(map(lambda t: t.rstrip().lstrip(), next(reader)))
 
         for row in reader:
             print(
