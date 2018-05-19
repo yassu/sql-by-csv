@@ -12,7 +12,10 @@ class SqlStringElement:
 
     def __str__(self):
         # TODO: エスケープシーケンスを考慮する
-        return "'{}'".format(self.value)
+        if self.value.lower() == 'null':
+            return 'null'
+        else:
+            return "'{}'".format(self.value)
 
 ALL_ELEMENTS = (SqlStringElement,)
 
