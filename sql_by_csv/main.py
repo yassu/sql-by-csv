@@ -7,6 +7,11 @@ import sys,os
 sys.path.append(os.path.expanduser('./../sql_by_csv/'))
 from sql_by_csv import insert_sql, elements
 
+def get_row_elements(row, types):
+    for i, item in enumerate(row):
+        _type = elements.isit(types[i])
+        yield _type(item)
+
 def main():
     filename = 'example_insert.csv'
 
@@ -22,8 +27,8 @@ def main():
         for row in reader:
             print(
                 str(insert_sql.InsertQuery(table_name,
-                    ('col1', 'col2'),
-                    (elements.SqlStringElement('val1'), elements.SqlStringElement('val2'))
+                    cols,
+                    list(get_row_elements(row, types))
                 ))
             )
 
