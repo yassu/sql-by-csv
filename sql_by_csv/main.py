@@ -19,7 +19,6 @@ def main():
         reader = csv.reader(f)
         cols = next(reader)
         print('cols: {}'.format(cols))
-        # TODO: 自動でtypeに対してElementsを取得するようにする
         types = next(reader)
         print('types: {}'.format(types))
         table_name = 'TableName'    # TODO: コマンドラインの引数から取るようにする
