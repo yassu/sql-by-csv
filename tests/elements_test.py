@@ -16,7 +16,10 @@ class TestSqlVarcharElement(unittest.TestCase):
     def test_str(self):
         self.assertTrue(str(elements.SqlVarcharElement("abc")) == "'abc'")
 
-    def test_str(self):
+    def test_str2(self):
+        self.assertTrue(str(elements.SqlVarcharElement("abc'")) == "'abc'''")
+
+    def test_str3(self):
         self.assertTrue(str(elements.SqlVarcharElement("Null")) == "null")
 
 class TestSqlTextElement(unittest.TestCase):
@@ -28,9 +31,13 @@ class TestSqlTextElement(unittest.TestCase):
         self.assertTrue(str(elements.SqlTextElement("abc")) == "'abc'")
 
     def test_to_string2(self):
-        self.assertTrue(str(elements.SqlTextElement("null")) == "null")
+        self.assertTrue(
+            str(elements.SqlTextElement("abc'def'klm")) == "'abc''def''klm'")
 
     def test_to_string3(self):
+        self.assertTrue(str(elements.SqlTextElement("null")) == "null")
+
+    def test_to_string4(self):
         self.assertTrue(str(elements.SqlTextElement("Null")) == "null")
 
     def test_isit(self):

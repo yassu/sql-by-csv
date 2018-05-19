@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import sys, os
+sys.path.append(os.path.expanduser('./../sql_by_csv/'))
+from sql_by_csv import utils
+
 class SqlVarcharElement:
     def __init__(self, s):
         self.value = s
@@ -15,7 +19,7 @@ class SqlVarcharElement:
         if self.value.lower() == 'null':
             return 'null'
         else:
-            return "'{}'".format(self.value)
+            return utils.str_escape(self.value)
 
 class SqlTextElement:
     def __init__(self, s):
@@ -31,7 +35,7 @@ class SqlTextElement:
         if self.value.lower() == 'null':
             return 'null'
         else:
-            return "'{}'".format(self.value)
+            return utils.str_escape(self.value)
 
 class SqlIntElement:
     def __init__(self, n):
