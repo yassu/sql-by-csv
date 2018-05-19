@@ -6,33 +6,33 @@ import sys,os
 sys.path.append(os.path.expanduser('./../sql_by_csv/'))
 from sql_by_csv import elements
 
-class TestSqlStringElement(unittest.TestCase):
+class TestSqlTextElement(unittest.TestCase):
 
     def test_init(self):
-        elements.SqlStringElement("abc")
+        elements.SqlTextElement("abc")
 
     def test_to_string(self):
-        self.assertTrue(str(elements.SqlStringElement("abc")) == "'abc'")
+        self.assertTrue(str(elements.SqlTextElement("abc")) == "'abc'")
 
     def test_to_string2(self):
-        self.assertTrue(str(elements.SqlStringElement("null")) == "null")
+        self.assertTrue(str(elements.SqlTextElement("null")) == "null")
 
     def test_to_string3(self):
-        self.assertTrue(str(elements.SqlStringElement("Null")) == "null")
+        self.assertTrue(str(elements.SqlTextElement("Null")) == "null")
 
     def test_isit(self):
-        self.assertTrue(elements.SqlStringElement.isit('string'))
+        self.assertTrue(elements.SqlTextElement.isit('text'))
 
     def test_isit2(self):
-        self.assertTrue(elements.SqlStringElement.isit('String'))
+        self.assertTrue(elements.SqlTextElement.isit('Text'))
 
     def test_isit3(self):
-        self.assertFalse(elements.SqlStringElement.isit('xyz'))
+        self.assertFalse(elements.SqlTextElement.isit('xyz'))
 
 
 class TestRawFunctions(unittest.TestCase):
     def test_isit(self):
-        self.assertTrue(elements.isit('String') == elements.SqlStringElement)
+        self.assertTrue(elements.isit('Text') == elements.SqlTextElement)
 
 
 if __name__ == "__main__":

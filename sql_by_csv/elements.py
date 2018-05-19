@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-class SqlStringElement:
+class SqlTextElement:
     def __init__(self, s):
         self.value = s
 
     @staticmethod
     def isit(s):
-        if s.lower() == 'string':
-            return SqlStringElement
+        if s.lower() == 'text':
+            return SqlTextElement
 
     def __str__(self):
         # TODO: エスケープシーケンスを考慮する
@@ -17,7 +17,7 @@ class SqlStringElement:
         else:
             return "'{}'".format(self.value)
 
-ALL_ELEMENTS = (SqlStringElement,)
+ALL_ELEMENTS = (SqlTextElement,)
 
 def isit(s):
     for element in ALL_ELEMENTS:
