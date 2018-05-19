@@ -7,4 +7,4 @@ class SqlStringElement:
 
     def __str__(self):
         # TODO: エスケープシーケンスを考慮する
-        return "\"{}\"".format(self.value)
+        return "'{}'".format(self.value)

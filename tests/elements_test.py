@@ -12,7 +12,7 @@ class TestSqlStringElement(unittest.TestCase):
         elements.SqlStringElement("abc")
 
     def test_to_string(self):
-        self.assertTrue(str(elements.SqlStringElement("abc")) == "\"abc\"")
+        self.assertTrue(str(elements.SqlStringElement("abc")) == "'abc'")
 
 
 if __name__ == "__main__":
