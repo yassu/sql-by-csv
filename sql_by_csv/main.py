@@ -22,19 +22,25 @@ def get_parser():
         type='string',
         help='table name'
     )
+    parser.add_option(
+        '--csv-filename', '-c',
+        action='store',
+        dest='csv_filename',
+        type='string',
+        help='csv filename'
+    )
     return parser
 
 def main():
     opts, args = get_parser().parse_args()
 
     # TODO: table_nameがNoneだったらError
-    filename = 'example_insert.csv'
+    # TODO: csv_filenameがNoneだったらError
 
-    with open(filename, 'r') as f:
+    with open(opts.csv_filename, 'r') as f:
         reader = csv.reader(f)
         cols = next(reader)
         types = next(reader)
-        table_name = 'TableName'    # TODO: コマンドラインの引数から取るようにする
 
         for row in reader:
             print(
