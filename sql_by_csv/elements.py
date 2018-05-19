@@ -44,8 +44,25 @@ class SqlIntElement:
     def __str__(self):
         return str(self.value)
 
+class SqlDatetimeElement:
+    def __init__(self, d):
+        self.value = d
 
-ALL_ELEMENTS = (SqlTextElement, SqlIntElement, SqlVarcharElement)
+    @staticmethod
+    def isit(s):
+        if s.lower() == 'datetime':
+            return SqlDatetimeElement
+
+    def __str__(self):
+        return "'{}'".format(self.value)
+
+
+ALL_ELEMENTS = (
+    SqlTextElement,
+    SqlIntElement,
+    SqlVarcharElement,
+    SqlDatetimeElement,
+)
 
 def isit(s):
     for element in ALL_ELEMENTS:

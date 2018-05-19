@@ -58,6 +58,23 @@ class TestSqlIntElement(unittest.TestCase):
     def test_str(self):
         self.assertTrue(str(elements.SqlIntElement(6)) == '6')
 
+class TestSqlDatetimeElement(unittest.TestCase):
+    def test_init(self):
+        elements.SqlDatetimeElement('2000-01-01')
+
+    def test_isit(self):
+        self.assertTrue(elements.SqlDatetimeElement.isit('datetime'))
+
+    def test_isit2(self):
+        self.assertTrue(elements.SqlDatetimeElement.isit('DATETIME'))
+
+    def test_isit3(self):
+        self.assertFalse(elements.SqlDatetimeElement.isit('DATrTIME'))
+
+    def test_str(self):
+        self.assertEqual(str(elements.SqlDatetimeElement('2000-01-01')), "'2000-01-01'")
+
+
 class TestRawFunctions(unittest.TestCase):
     def test_isit(self):
         self.assertTrue(elements.isit('Text') == elements.SqlTextElement)
