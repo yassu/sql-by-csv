@@ -15,3 +15,8 @@ value1_1,value1_2,value1_3,e.t.c.
 value2_1,value2_2,value2_3,e.t.c.
 value3_1,value3_2,value3_3,e.t.c.
 e.t.c.
+
+LICENSE
+=========
+
+Apache
