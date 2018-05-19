@@ -1,4 +1,4 @@
-col1,col2,col3
-text,text,text
-a,b,c
-x,y,null
+col1,col2,col3,col4,col5
+text,text,text,int,varchar
+a,b,c,3,defdef
+x,y,null,5,loglog

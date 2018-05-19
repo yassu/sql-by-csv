@@ -6,6 +6,19 @@ import sys,os
 sys.path.append(os.path.expanduser('./../sql_by_csv/'))
 from sql_by_csv import elements
 
+class TestSqlVarcharElement(unittest.TestCase):
+    def test_init(self):
+        elements.SqlVarcharElement("abc")
+
+    def test_isit(self):
+        self.assertTrue(elements.SqlVarcharElement.isit('varchar'))
+
+    def test_str(self):
+        self.assertTrue(str(elements.SqlVarcharElement("abc")) == "'abc'")
+
+    def test_str(self):
+        self.assertTrue(str(elements.SqlVarcharElement("Null")) == "null")
+
 class TestSqlTextElement(unittest.TestCase):
 
     def test_init(self):

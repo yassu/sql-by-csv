@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+class SqlVarcharElement:
+    def __init__(self, s):
+        self.value = s
+
+    @staticmethod
+    def isit(s):
+        # TODO: varchar, varchar max, varchar(50)などに対応する
+        if s.lower() == 'varchar':
+            return SqlVarcharElement
+
+    def __str__(self):
+        if self.value.lower() == 'null':
+            return 'null'
+        else:
+            return "'{}'".format(self.value)
+
 class SqlTextElement:
     def __init__(self, s):
         self.value = s
@@ -29,7 +45,7 @@ class SqlIntElement:
         return str(self.value)
 
 
-ALL_ELEMENTS = (SqlTextElement, SqlIntElement)
+ALL_ELEMENTS = (SqlTextElement, SqlIntElement, SqlVarcharElement)
 
 def isit(s):
     for element in ALL_ELEMENTS:
