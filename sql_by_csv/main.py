@@ -40,7 +40,12 @@ def main():
             'for setting TableName.\n')
         sys.exit()
 
-    # TODO: csv_filenameがNoneだったらError
+    if opts.csv_filename is None:
+        sys.stderr.write('Csvfilename is required.\n')
+        sys.stderr.write('Use -c or --csv-filename {CsvFilename} '
+            'for setting CsvFilename.\n')
+        sys.exit()
+
 
     with open(opts.csv_filename, 'r') as f:
         reader = csv.reader(f)
