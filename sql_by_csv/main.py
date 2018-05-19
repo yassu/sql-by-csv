@@ -34,7 +34,12 @@ def get_parser():
 def main():
     opts, args = get_parser().parse_args()
 
-    # TODO: table_nameがNoneだったらError
+    if opts.table_name is None:
+        sys.stderr.write('TableName is required.\n')
+        sys.stderr.write('Use -t or --table-name {TableName} '
+            'for setting TableName.\n')
+        sys.exit()
+
     # TODO: csv_filenameがNoneだったらError
 
     with open(opts.csv_filename, 'r') as f:
