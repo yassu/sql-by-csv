@@ -11,6 +11,9 @@ class TestSqlStringElement(unittest.TestCase):
     def test_init(self):
         elements.SqlStringElement("abc")
 
+    def test_to_string(self):
+        self.assertTrue(str(elements.SqlStringElement("abc")) == "\"abc\"")
+
 
 if __name__ == "__main__":
     unittest.main()
