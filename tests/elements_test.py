@@ -24,5 +24,10 @@ class TestSqlStringElement(unittest.TestCase):
         self.assertFalse(elements.SqlStringElement.isit('xyz'))
 
 
+class TestRawFunctions(unittest.TestCase):
+    def test_isit(self):
+        self.assertTrue(elements.isit('String') == elements.SqlStringElement)
+
+
 if __name__ == "__main__":
     unittest.main()

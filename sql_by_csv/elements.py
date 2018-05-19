@@ -13,3 +13,11 @@ class SqlStringElement:
     def __str__(self):
         # TODO: エスケープシーケンスを考慮する
         return "'{}'".format(self.value)
+
+ALL_ELEMENTS = (SqlStringElement,)
+
+def isit(s):
+    for element in ALL_ELEMENTS:
+        if element.isit(s):
+            return element.isit(s)
+
