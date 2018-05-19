@@ -29,10 +29,28 @@ class TestSqlTextElement(unittest.TestCase):
     def test_isit3(self):
         self.assertFalse(elements.SqlTextElement.isit('xyz'))
 
+class TestSqlIntElement(unittest.TestCase):
+    def test_init(self):
+        elements.SqlIntElement(3)
+
+    def test_isit(self):
+        self.assertTrue(elements.SqlIntElement.isit('int'))
+
+    def test_isit2(self):
+        self.assertTrue(elements.SqlIntElement.isit('Int'))
+
+    def test_isit3(self):
+        self.assertFalse(elements.SqlIntElement.isit('string'))
+
+    def test_str(self):
+        self.assertTrue(str(elements.SqlIntElement(6)) == '6')
 
 class TestRawFunctions(unittest.TestCase):
     def test_isit(self):
         self.assertTrue(elements.isit('Text') == elements.SqlTextElement)
+
+    def test_isit2(self):
+        self.assertTrue(elements.isit('Int') == elements.SqlIntElement)
 
 
 if __name__ == "__main__":

@@ -17,7 +17,19 @@ class SqlTextElement:
         else:
             return "'{}'".format(self.value)
 
-ALL_ELEMENTS = (SqlTextElement,)
+class SqlIntElement:
+    def __init__(self, n):
+        self.value = n
+
+    def isit(s):
+        if s.lower() == 'int':
+            return SqlIntElement
+
+    def __str__(self):
+        return str(self.value)
+
+
+ALL_ELEMENTS = (SqlTextElement, SqlIntElement)
 
 def isit(s):
     for element in ALL_ELEMENTS:
